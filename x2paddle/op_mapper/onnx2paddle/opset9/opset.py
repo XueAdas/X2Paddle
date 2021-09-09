@@ -713,6 +713,10 @@ class OpSet9():
         if len(value) == 1:
             value = value.tolist()
             value = value[0]
+            if value == "inf":
+                value = 2147483648
+            if value == "-inf":
+                value = -2147483648
             self.paddle_graph.add_layer(
                 "paddle.full",
                 inputs={},
